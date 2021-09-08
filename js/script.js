@@ -50,6 +50,38 @@ function playRound(playerSelection, computerSelection){
 function game(){
     let playerSelection = prompt("What is your selection? ");
     let computerSelection = computerPlay();
-    return playRound(playerSelection, computerSelection)
+
     
+    console.log(playRound(playerSelection, computerSelection))
+    
+
+    if(round < 5){
+        console.log("End of Round "+round+" Next round starting...")
+        game();
+    }
+    else if(round === 5){
+        alert("End of game")
+        console.log("Game Results: "+" Player Wins: "+win+ " Computer wins: "+loss)
+        if(win > loss){
+            console.log("Congrats you won!! ");
+        }
+        else if(win < loss){
+            console.log("Sorry you lose!! ");
+        }
+        else if(win === loss){
+            console.log("It is a tie! ");
+        }
+    }
+    
+    // playRound(playerSelection, computerSelection);
+    // playRound(playerSelection, computerSelection);
+    // playRound(playerSelection, computerSelection);
+    // playRound(playerSelection, computerSelection);
+
+    // if(round === 5 && win > loss){
+    //     return "Congratulations you won!! "
+    // }
+    // else if (round === 5 && loss > win){
+    //     return "Sorry you lose!! "
+    // }
 }
