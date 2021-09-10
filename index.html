@@ -28,10 +28,11 @@
   <div class="game-window hidden">
     <h3>Round {placeholder}</h3>
     <div class="game-window__choices">
-      <select name="options" id="game-options">
-        <option value="rock">Rock</option>
-        <option value="paper">Paper</option>
-        <option value="paper">Sciccors</option>
+      <select name="options" id="game-options" onchange="madeMyChoice(this)">
+        <option value="-1">Please select an your weapon</option>
+        <option value="0">Rock</option>
+        <option value="1">Paper</option>
+        <option value="2">Sciccors</option>
       </select>
     </div>
   </div>

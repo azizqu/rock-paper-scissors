@@ -17,6 +17,10 @@ function fireAction(event) {
     gameWindow.classList.remove('hidden');
 }
 
+function madeMyChoice(choice) {
+    console.log(choice.value);
+}
+
 function computerPlay(){
  let randomPlay = choice[Math.floor(Math.random() * choice.length)]
  console.log(randomPlay)
