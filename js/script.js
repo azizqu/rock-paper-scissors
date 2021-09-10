@@ -10,6 +10,13 @@ let choice = [
     "Scissors"
 ]
 
+function fireAction(event) {
+    console.log(event)
+    const gameWindow = document.querySelector('.game-window');
+    console.log(gameWindow);
+    gameWindow.classList.remove('hidden');
+}
+
 function computerPlay(){
  let randomPlay = choice[Math.floor(Math.random() * choice.length)]
  console.log(randomPlay)
@@ -47,6 +54,7 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+
 function game(){
     let playerSelection = prompt("What is your selection? ");
     let computerSelection = computerPlay();
@@ -72,6 +80,7 @@ function game(){
             console.log("It is a tie! ");
         }
     }
+
     
     // playRound(playerSelection, computerSelection);
     // playRound(playerSelection, computerSelection);

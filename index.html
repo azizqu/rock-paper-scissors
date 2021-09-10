@@ -5,6 +5,11 @@
   <meta charset="UTF-8"/>
   <script src="js/script.js"></script>
 </head>
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
 <body>
 
 <h1> Rock Paper Scissors</h1>
@@ -14,6 +19,22 @@
   <p> Instructions: </p>
   <ol> Enter developers console by hitting F12 and navigating to the console</ol>
   <ol> To start a 5 game round type game() into the console and hit enter </ol>
+</div>
+
+<div id="app" class="app">
+  <h2>Add Start button here</h2>
+  <button onclick="fireAction(event)">Start</button>
+
+  <div class="game-window hidden">
+    <h3>Round {placeholder}</h3>
+    <div class="game-window__choices">
+      <select name="options" id="game-options">
+        <option value="rock">Rock</option>
+        <option value="paper">Paper</option>
+        <option value="paper">Sciccors</option>
+      </select>
+    </div>
+  </div>
 </div>
  
 
