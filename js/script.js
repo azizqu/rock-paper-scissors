@@ -62,45 +62,43 @@ function playRound(playerSelection, computerSelection){
     //computerSelection = computerPlay();
 
     if (playerSelection === computerSelection){
-        return (round++ , "It is a tie! " + "End of Round: "+round +" Wins: "+win+ " Losses: "+loss)
+        return (round++ , "It is a tie! " + "End of Round: "+(round-1) +" Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "rock" && computerSelection === "scissors"){
-        return (round++, win++, "You Win! " + " End of Round: "+round+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, win++, "You Win! " + " End of Round: "+(round-1)+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "scissors" && computerSelection === "rock"){
-        return (round++, loss++, "You Lose! " +" End of Round: "+round+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, loss++, "You Lose! " +" End of Round: "+(round-1)+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "paper" && computerSelection === "rock"){
-        return (round++, win++, "You Win! " + " End of Round: "+round+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, win++, "You Win! " + " End of Round: "+(round-1)+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "rock" && computerSelection === "paper"){
-        return (round++, loss++, "You Lose! " +" End of Round: "+round+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, loss++, "You Lose! " +" End of Round: "+(round-1)+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "scissors" && computerSelection === "paper"){
-        return (round++, win++, "You Win! " + " End of Round: "+round+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, win++, "You Win! " + " End of Round: "+(round-1)+ " "+playerSelection+ " Beats " +computerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
     else if (playerSelection === "paper" && computerSelection === "scissors"){
-        return (round++, loss++, "You Lose! " +" End of Round: "+round+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
+        return (round++, loss++, "You Lose! " +" End of Round: "+(round-1)+ " " +computerSelection+ " Beats " +playerSelection+ " Wins: "+win+ " Losses: "+loss)
     }
 
 }
 
 
 function game(){
-    //let playerSelection = prompt("What is your selection? ");
     let playerSelection = madeMyChoice(this);
     let computerSelection = computerPlay();
     document.getElementById("round-number").innerHTML = " Round: "+round;
-
     //playRound(playerSelection, computerSelection)
     
     //console.log(playRound(playerSelection, computerSelection))
     console.log(playRound(playerSelection, computerSelection));
 
-    if(round < 5){
-        console.log("End of Round "+round+" Start another game...")
+    if(round < 6){
+        console.log("End of Round "+(round-1)+" Start another game...")
     }
-    else if(round === 5){
+    else if(round === 6){
         alert("End of game press Ok for Final Results")
         console.log("Game Results: "+" Player Wins: "+win+ " Computer wins: "+loss)
         if(win > loss){
