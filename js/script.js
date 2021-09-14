@@ -2,7 +2,7 @@ console.log("hello")
 
 let win = 0;
 let loss = 0;
-let round = 0;
+let round = 1;
 
 let choice = [
     "Rock",
@@ -10,20 +10,45 @@ let choice = [
     "Scissors"
 ]
 
-function fireAction(event) {
+function startNewGame(event) {
     console.log(event)
     const gameWindow = document.querySelector('.game-window');
     console.log(gameWindow);
     gameWindow.classList.remove('hidden');
+    win = 0;
+    loss = 0;
+    round = 1;
+}
+// refreshes page and reloads init values
+function resetGame(event){
+    console.log(event)
+    const gameButtons = document.querySelector('.game-buttons');
+    console.log(gameButtons);
+    gameButtons.classList.remove('hidden');
+    console.log("game has been reset");
+    win = 0;
+    loss = 0;
+    round = 1;
+    location.reload(); //maybe dont need this if resetting init values
 }
 
-function madeMyChoice(choice) {
-    console.log(choice.value);
+function madeMyChoice() {
+    let selection = document.getElementById("game-options")
+    console.log(selection.value)
+    console.log(selection)
+    
+    let selectionText = selection.options[selection.selectedIndex].text 
+    console.log(selectionText+" -> Player's choice ");
+    //console.log(choice.value)
+    return selectionText
+
 }
 
 function computerPlay(){
  let randomPlay = choice[Math.floor(Math.random() * choice.length)]
- console.log(randomPlay)
+ console.log(choice.indexOf(randomPlay))
+ console.log(randomPlay+" -> Computer's choice ")
+ const computerSelection = choice.indexOf(randomPlay)
  return randomPlay
 }
 
@@ -33,6 +58,8 @@ function computerPlay(){
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
+    //playerSelection = madeMyChoice(choice);
+    //computerSelection = computerPlay();
 
     if (playerSelection === computerSelection){
         return (round++ , "It is a tie! " + "End of Round: "+round +" Wins: "+win+ " Losses: "+loss)
@@ -60,41 +87,31 @@ function playRound(playerSelection, computerSelection){
 
 
 function game(){
-    let playerSelection = prompt("What is your selection? ");
+    //let playerSelection = prompt("What is your selection? ");
+    let playerSelection = madeMyChoice(this);
     let computerSelection = computerPlay();
+    document.getElementById("round-number").innerHTML = " Round: "+round;
 
+    //playRound(playerSelection, computerSelection)
     
-    console.log(playRound(playerSelection, computerSelection))
-    
+    //console.log(playRound(playerSelection, computerSelection))
+    console.log(playRound(playerSelection, computerSelection));
 
     if(round < 5){
-        console.log("End of Round "+round+" Next round starting...")
-        game();
+        console.log("End of Round "+round+" Start another game...")
     }
     else if(round === 5){
-        alert("End of game")
+        alert("End of game press Ok for Final Results")
         console.log("Game Results: "+" Player Wins: "+win+ " Computer wins: "+loss)
         if(win > loss){
-            console.log("Congrats you won!! ");
+            console.log("Congrats you won best of 5!! ");
         }
         else if(win < loss){
-            console.log("Sorry you lose!! ");
+            console.log("Sorry you lose best of 5!! ");
         }
         else if(win === loss){
             console.log("It is a tie! ");
         }
     }
 
-    
-    // playRound(playerSelection, computerSelection);
-    // playRound(playerSelection, computerSelection);
-    // playRound(playerSelection, computerSelection);
-    // playRound(playerSelection, computerSelection);
-
-    // if(round === 5 && win > loss){
-    //     return "Congratulations you won!! "
-    // }
-    // else if (round === 5 && loss > win){
-    //     return "Sorry you lose!! "
-    // }
 }
