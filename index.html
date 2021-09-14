@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Rock Paper Scissors</title>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <script src="js/script.js"></script>
 </head>
 <style>
   .hidden {
     display: none;
   }
+
+  .game-window__results {
+    padding: 1rem;
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+    min-height: 3rem;
+  }
 </style>
+
 <body>
 
-<h1> Rock Paper Scissors</h1>
+  <h1> Rock Paper Scissors</h1>
 
-<h2> Welcome to the Rock Paper Scissors console game!  </h2>
-<div>
-  <p> Instructions: </p>
-  <li> Enter developers console by hitting F12 and navigating to the console</li>
-  <li> To begin hit Start </li>
-  <li> Next select your weapon (Rock, Paper or Scissors) and click Play a Round </li>
-  <li> After each round, the console will declare who the winner is and after 5 rounds the final game results! Good Luck! </li>
-</div>
-
-<div id="app" class="app">
-  <h2>Start A new Game</h2>
-  <button onclick="startNewGame(event)">Start</button>
-
-  <div class="game-window hidden">
-    <h3 id="round-number">Round: </h3>
-    <div class="game-window__choices">
-      <select name="options" id="game-options" onchange="madeMyChoice(this)">
-        <option value="-1">Please select an your weapon</option>
-        <option value="0">Rock</option>
-        <option value="1">Paper</option>
-        <option value="2">Scissors</option>
-      </select>
-    </div>
-  <div class="game-buttons">
-    <button onclick="game()">Play a Round</button>
-    <button onclick="resetGame(event)">Reset Game</button>  
-  </div>  
+  <h2> Welcome to the Rock Paper Scissors console game! </h2>
+  <div>
+    <p> Instructions: </p>
+    <ul>
+      <li>Enter developers console by hitting F12 and navigating to the console</li>
+      <li>Hit the start button to get started</li>
+    </ul>
   </div>
-</div>
- 
+
+  <div id="app" class="app">
+    <h2>Start A new Game</h2>
+    <button onclick="startNewGame(event)">Start</button>
+
+    <div class="game-window hidden">
+      <h3>Round: <span id="round-number"></span></h3>
+      <div class="game-window__choices">
+        <select name="options" id="game-options">
+          <!-- <select name="options" id="game-options" onchange="madeMyChoice(this)"> -->
+          <option value="-1">Please select an your weapon</option>
+          <option value="0">Rock</option>
+          <option value="1">Paper</option>
+          <option value="2">Scissors</option>
+        </select>
+      </div>
+      <div class="game-window__results">
+
+      </div>
+      <div class="game-buttons">
+        <button id="play-button" onclick="game()">Play New Round</button>
+        <button onclick="resetGame(event)">Reset Game</button>
+      </div>
+    </div>
+  </div>
+
 
 
 </body>
+
 </html>
